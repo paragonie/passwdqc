@@ -541,7 +541,7 @@ abstract class Compat
      * @param string $reason
      * @return bool
      */
-    protected function reject(string $reason): bool
+    protected static function reject(string $reason): bool
     {
         self::$lastReason = $reason;
         return false;
