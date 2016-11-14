@@ -1,0 +1,46 @@
+{
+  "name": "paragonie/passwdqc",
+  "description": "Password/passphrase strength checking and enforcement",
+  "keywords": [
+    "passwdqc",
+    "password strength",
+    "passphrase strength",
+    "passwords",
+    "passphrases",
+    "security"
+  ],
+  "license": "0BSD",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Solar Designer",
+      "email": "solar@openwall.com",
+      "homepage": "http://www.openwall.com",
+      "role": "Original Developer"
+    },
+    {
+      "name": "Paragon Initiative Enterprises, LLC",
+      "email": "security@paragonie.com",
+      "homepage": "https://paragonie.com",
+      "role": "Developer (PHP Port)"
+    }
+  ],
+  "support": {
+    "email": "security@paragonie.com",
+    "issues": "https://github.com/paragonie/passwdqc/issues",
+    "source": "https://github.com/paragonie/passwdqc"
+  },
+  "homepage": "http://www.openwall.com/passwdqc/",
+  "require": {
+    "php": "^7",
+    "paragonie/constant_time_encoding": "^2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.*|5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ParagonIE\\Passwdqc\\": "src/"
+    }
+  }
+}
