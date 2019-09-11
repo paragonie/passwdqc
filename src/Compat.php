@@ -352,7 +352,7 @@ abstract class Compat
                         return true;
                     }
                     if (!$params->getPassphrase() || $words < $params->getPassphrase()) {
-                        continue;
+                        break;
                     }
                     if ($length + $passphraseBias >= $params->getMin(2)
                         &&
