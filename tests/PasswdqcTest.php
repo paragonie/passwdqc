@@ -3,12 +3,13 @@ declare(strict_types=1);
 namespace ParagonIE\Passwdqc\Tests;
 
 use ParagonIE\Passwdqc\Passwdqc;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class PasswdqcTest
  * @package ParagonIE\Passwdqc\Tests
  */
-class PasswdqcTest extends \PHPUnit_Framework_TestCase
+class PasswdqcTest extends TestCase
 {
 
     public function testCheck()

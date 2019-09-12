@@ -19,7 +19,7 @@ class Params
      * The minimum allowed password lengths for different kinds of
      * passwords/passphrases.
      *
-     * @var int[5]
+     * @var int[]
      */
     protected $min = [
         PHP_INT_MAX,

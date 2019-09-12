@@ -110,7 +110,7 @@ abstract class Compat
             $y = ($y * $x) >> self::FIXED_BITS;
         }
         $z = $charset * 1 << (self::FIXED_BITS - $y);
-        return ($z >> self::FIXED_BITS);
+        return (int) ($z >> self::FIXED_BITS);
     }
 
     /**
@@ -221,7 +221,7 @@ abstract class Compat
                                     $params,
                                     $original,
                                     $bias,
-                                    ($mode & 0xff === 1 ? 0 : $bias)
+                                    (($mode & 0xff) === 1 ? 0 : $bias)
                                 )) {
                                     return false;
                                 }
@@ -286,6 +286,8 @@ abstract class Compat
                 ++$digits;
             } elseif (\ctype_lower($c)) {
                 ++$lowers;
+            } elseif (\ctype_upper($c)) {
+                ++$uppers;
             } else {
                 ++$others;
             }
@@ -306,16 +308,16 @@ abstract class Compat
             }
         }
         $classes = 0;
-        if ($digits) {
+        if (!empty($digits)) {
             ++$classes;
         }
-        if ($lowers) {
+        if (!empty($lowers)) {
             ++$classes;
         }
-        if ($uppers) {
+        if (!empty($uppers)) {
             ++$classes;
         }
-        if ($others) {
+        if (!empty($others)) {
             ++$classes;
         }
         if ($unknowns && $classes <= 1 && (!$classes || $digits || $words >= 2)) {
@@ -387,10 +389,7 @@ abstract class Compat
         string $original = '',
         bool $isReversed = false
     ): bool {
-        if ($params === null) {
-            $params = static::getDefaultParams();
-        }
-        if ($params === null) {
+        if (empty($params)) {
             $params = static::getDefaultParams();
         }
         if ($params->getMatch() === 0) {
